@@ -96,7 +96,13 @@ GOOD LUCK 😀
 */
 
 const loadAll = async (imgArr) => {
-  await imgArr.map((imgci) => createImage(imgci));
+  try {
+    const imgs = await Promise.all(imgArr.map((imgci) => createImage(imgci)));
+    console.log(imgs);
+    imgs.forEach((img) => img.classList.add("parallel"));
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 imgs = ["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"];
