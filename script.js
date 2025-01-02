@@ -49,33 +49,34 @@ let currentImg; // we need a global variable here!
 
 // Using async, await and IIFE instead of .then() method in the following PART which consumes the Promise:
 ////////////////////////////////////////////////////////////////
-// (async () => {
-//   try {
-//     const img1 = await createImage("./img/img-1.jpg");
-//     currentImg = img1; // to hide it in the next step!
-//     console.log("Image 1 loaded!");
-//     await wait(2);
+(async () => {
+  try {
+    // NOTE: we don't need to define different img1,img2,img3 and also currentImg variables because we are only in one block which is try{} catch block(). When we use .then() we are in several blocks, that's why we have to use different varibales and a global variable to make a connection between all these variables!
+    let img = await createImage("./img/img-1.jpg");
+    // currentImg = img1; // to hide it in the next step!
+    console.log("Image 1 loaded!");
+    await wait(2);
 
-//     currentImg.style.display = "none"; // hide the first image
-//     const img2 = await createImage("./img/img-2.jpg"); // return a new promise which is img and
+    img.style.display = "none"; // hide the first image
+    img = await createImage("./img/img-2.jpg"); // return a new promise which is img and
 
-//     currentImg = img2; // to hide it in the next step!
-//     console.log("Image 2 loaded!");
-//     await wait(2);
+    // currentImg = img2; // to hide it in the next step!
+    console.log("Image 2 loaded!");
+    await wait(2);
 
-//     currentImg.style.display = "none"; // hide the second image
-//     const img3 = await createImage("./img/img-3.jpg");
+    img.style.display = "none"; // hide the second image
+    img = await createImage("./img/img-3.jpg");
 
-//     currentImg = img3; // to hide it in the next step!
-//     console.log("Image 3 loaded!");
-//     await wait(2);
+    // currentImg = img3; // to hide it in the next step!
+    console.log("Image 3 loaded!");
+    await wait(2);
 
-//     currentImg.style.display = "none"; // hide the third image
-//   } catch (err) {
-//     // console.error(err.message);
-//     throw new Error(`Image failed to load!`);
-//   }
-// })();
+    img.style.display = "none"; // hide the third image
+  } catch (err) {
+    // console.error(err.message);
+    throw new Error(`Image failed to load!`);
+  }
+})();
 ////////////////////////////////////////////////////////////////
 
 /* 
