@@ -83,7 +83,7 @@ const wait = (seconds) => {
 
 let currentImg; // we need a global variable here!
 
-const loadNPause = async () => {
+(async () => {
   try {
     const img1 = await createImage("./img/img-1.jpg");
     currentImg = img1; // to hide it in the next step!
@@ -107,6 +107,4 @@ const loadNPause = async () => {
   } catch (err) {
     console.log(err.message);
   }
-};
-
-loadNPause();
+})();
