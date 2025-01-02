@@ -103,6 +103,15 @@ const loadAll = async (imgArr) => {
     // Promise.all get an array as input and return a new promise array as output -- we call the output array as imgs
 
     // When one Promise in Promise.all rejects, rejects all promises, therefore, the promise.all is short-circuit of the Promises!
+
+    // JONAS ANSWER:
+    ///////////////////////////////////////////////////////////
+    // const imgs = imgArr.map(async (img) => await createImage(img));
+    // const imgsEL = await Promise.all(imgs);
+    // console.log(imgsEL);
+    // imgsEL.forEach((img) => img.classList.add("parallel"));
+    ///////////////////////////////////////////////////////////
+
     const imgs = await Promise.all(imgArr.map((imgci) => createImage(imgci)));
     console.log(imgs);
 
