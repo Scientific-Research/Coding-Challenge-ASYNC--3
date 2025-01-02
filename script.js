@@ -88,23 +88,24 @@ let currentImg; // we need a global variable here!
     const img1 = await createImage("./img/img-1.jpg");
     currentImg = img1; // to hide it in the next step!
     console.log("Image 1 loaded!");
-    wait(2);
+    await wait(2);
 
     currentImg.style.display = "none"; // hide the first image
     const img2 = await createImage("./img/img-2.jpg"); // return a new promise which is img and
+
     currentImg = img2; // to hide it in the next step!
     console.log("Image 2 loaded!");
-    wait(2);
+    await wait(2);
 
     currentImg.style.display = "none"; // hide the second image
     const img3 = await createImage("./img/img-3.jpg");
 
     currentImg = img3; // to hide it in the next step!
     console.log("Image 3 loaded!");
-    wait(2);
+    await wait(2);
 
     currentImg.style.display = "none"; // hide the third image
   } catch (err) {
-    console.log(err.message);
+    console.error(err.message);
   }
 })();
