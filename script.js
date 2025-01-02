@@ -6,7 +6,7 @@ PART 1
 write an async function 'loadNPause' that recreates Coding-Challenge #2, this time using async/await (only the part where the promise is consumed). Compare the two versions, think about the big differences, and see which one you like more. Don't forget to test the error handler, and to set the network speed to 'Fast 3G' in the dev tools Netwrok tab!
 */
 
-const createImage = (imgPath) => {
+const loadNPause = (imgPath) => {
   return new Promise((resolve, reject) => {
     const img = document.createElement("img");
 
@@ -47,7 +47,7 @@ const wait = (seconds) => {
 //////////// CHAT GPT ANSWER ///////////////////////
 let currentImg; // we need a global variable here!
 
-createImage("./img/img-1.jpg")
+loadNPause("./img/img-1.jpg")
   .then((img) => {
     currentImg = img; // to hide it in the next step!
     console.log("Image 1 loaded!");
@@ -57,7 +57,7 @@ createImage("./img/img-1.jpg")
   .then(() => {
     // We don't have any access to the img parameter here, that's why we use a global variable for that => currentImg
     currentImg.style.display = "none"; // hide the first image
-    return createImage("./img/img-2.jpg"); // return a new promise which is img and we receive this img below at the next then()!
+    return loadNPause("./img/img-2.jpg"); // return a new promise which is img and we receive this img below at the next then()!
   })
   .then((img) => {
     currentImg = img; // to hide it in the next step!
@@ -66,7 +66,7 @@ createImage("./img/img-1.jpg")
   })
   .then(() => {
     currentImg.style.display = "none"; // hide the second image
-    return createImage("./img/img-3.jpg");
+    return loadNPause("./img/img-3.jpg");
   })
   .then((img) => {
     currentImg = img; // to hide it in the next step!
