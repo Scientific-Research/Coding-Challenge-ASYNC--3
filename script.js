@@ -92,3 +92,10 @@ TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn of
 
 GOOD LUCK 😀
 */
+
+const loadAll = async (imgArr) => {
+  imgArr.map((img) => console.log(img));
+};
+
+imgArr = ["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"];
+loadAll(imgArr);
