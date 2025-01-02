@@ -97,8 +97,13 @@ GOOD LUCK 😀
 
 const loadAll = async (imgArr) => {
   try {
+    // Promise.all get an array as input and return a new promise array as output -- we call the output array as imgs
+
+    // When one Promise in Promise.all rejects, rejects all promises, therefore, the promise.all is short-circuit of the Promises!
     const imgs = await Promise.all(imgArr.map((imgci) => createImage(imgci)));
     console.log(imgs);
+
+    // and we use forEach() loop to loop over the images and add classList('parallel) to them to have a very beautiful apperance on the page!
     imgs.forEach((img) => img.classList.add("parallel"));
   } catch (err) {
     console.error(err);
