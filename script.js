@@ -1,5 +1,6 @@
 ////////////////////////////////////////////////////////////
 // Coding Challenge #3
+const imgContainer = document.querySelector(".images");
 
 /* 
 PART 1
@@ -74,3 +75,20 @@ let currentImg; // we need a global variable here!
     throw new Error(`Image failed to load!`);
   }
 })();
+
+/* 
+PART 2
+1. Create an async function 'loadAll' that receives an array of image paths 'imgArr';
+
+2. Use .map to loop over the array, to load all the images with the 'createImage' function (call the resulting array 'imgs')
+
+3. Check out the 'imgs' array in the console! Is it like you expected?
+
+4. Use a promise combinator function to actually get the images from the array 😉
+
+5. Add the 'parallel' class to all the images (it has some CSS styles).
+
+TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn off the 'loadNPause' function!
+
+GOOD LUCK 😀
+*/
