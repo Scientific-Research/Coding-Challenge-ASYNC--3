@@ -94,8 +94,8 @@ GOOD LUCK 😀
 */
 
 const loadAll = async (imgArr) => {
-  imgArr.map((img) => console.log(img));
+  imgArr.map((img) => createImage(img));
 };
 
-imgArr = ["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"];
-loadAll(imgArr);
+imgs = ["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"];
+loadAll(imgs);
