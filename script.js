@@ -23,7 +23,7 @@ const createImage = (imgPath) => {
       // After appending, this is what is forming is HTML:
       /* 
       <div class="images">
-          <img src="" alt=""> // img is Child of the div element with images class which is appended to that!
+      <img src="" alt=""> // img is Child of the div element with images class which is appended to that!
       </div>
       */
 
@@ -48,33 +48,35 @@ const wait = (seconds) => {
 let currentImg; // we need a global variable here!
 
 // Using async, await and IIFE instead of .then() method in the following PART which consumes the Promise:
-(async () => {
-  try {
-    const img1 = await createImage("./img/img-1.jpg");
-    currentImg = img1; // to hide it in the next step!
-    console.log("Image 1 loaded!");
-    await wait(2);
+////////////////////////////////////////////////////////////////
+// (async () => {
+//   try {
+//     const img1 = await createImage("./img/img-1.jpg");
+//     currentImg = img1; // to hide it in the next step!
+//     console.log("Image 1 loaded!");
+//     await wait(2);
 
-    currentImg.style.display = "none"; // hide the first image
-    const img2 = await createImage("./img/img-2.jpg"); // return a new promise which is img and
+//     currentImg.style.display = "none"; // hide the first image
+//     const img2 = await createImage("./img/img-2.jpg"); // return a new promise which is img and
 
-    currentImg = img2; // to hide it in the next step!
-    console.log("Image 2 loaded!");
-    await wait(2);
+//     currentImg = img2; // to hide it in the next step!
+//     console.log("Image 2 loaded!");
+//     await wait(2);
 
-    currentImg.style.display = "none"; // hide the second image
-    const img3 = await createImage("./img/img-3.jpg");
+//     currentImg.style.display = "none"; // hide the second image
+//     const img3 = await createImage("./img/img-3.jpg");
 
-    currentImg = img3; // to hide it in the next step!
-    console.log("Image 3 loaded!");
-    await wait(2);
+//     currentImg = img3; // to hide it in the next step!
+//     console.log("Image 3 loaded!");
+//     await wait(2);
 
-    currentImg.style.display = "none"; // hide the third image
-  } catch (err) {
-    // console.error(err.message);
-    throw new Error(`Image failed to load!`);
-  }
-})();
+//     currentImg.style.display = "none"; // hide the third image
+//   } catch (err) {
+//     // console.error(err.message);
+//     throw new Error(`Image failed to load!`);
+//   }
+// })();
+////////////////////////////////////////////////////////////////
 
 /* 
 PART 2
@@ -94,7 +96,7 @@ GOOD LUCK 😀
 */
 
 const loadAll = async (imgArr) => {
-  imgArr.map((img) => createImage(img));
+  await imgArr.map((imgci) => createImage(imgci));
 };
 
 imgs = ["img/img-1.jpg", "img/img-2.jpg", "img/img-3.jpg"];
